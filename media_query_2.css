@@ -1,0 +1,105 @@
+/* Resetting margin, padding, and box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font: 14px George serif;
+    background: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fluid wrap styles */
+#fluid-wrap {
+    display: flex;  /* Flexbox container */
+    margin: 0;
+    padding: 0;
+}
+
+/* Box styles */
+.box {
+    flex: 1;    /* Flex-grow property */
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0;
+    display: inline-block;
+    height: 150px; 
+}
+
+/* ALTERNATIVE APPROACH: assigned different classes (blue1, blue2, blue3, and blue4) to each of the four boxes in the HTML. */
+/* .blue1 {
+    background-color: #3498db;    // Blue shade 1 //
+}*/
+
+/* Background colors for each box */
+.box:nth-child(1) {                  
+    background-color: #3498db
+}
+
+.box:nth-child(2) {
+    background-color: #2980b9
+}
+
+.box:nth-child(3) {
+    background-color: #1e6091
+}
+
+.box:nth-child(4) {
+    background-color: #154360
+}
+
+/* Heading styles */
+h1 {
+    font: 24px ;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Heading 2 and paragraph styles */
+h2, p {
+    margin: 20px 0 8px 0;
+    color: #f5f5f5;
+}
+
+/* Media query for tablets */
+@media all and (max-width: 1023px) and (min-width: 768px) {
+   
+    /* Adjusting layout for tablets */
+    #fluid-wrap {
+        flex-direction: row;    /* Displaying boxes in a row */
+        flex-wrap: wrap;    /* Allowing wrapping of boxes */
+        justify-content: flex-start;     /* Aligning boxes to the start of the container */
+    }
+
+    /* Adjusting box size for tablets */
+    .box {
+        flex-basis: calc(50% - 30px); /* Two boxes per row with spacing */
+        
+    }
+    
+    /* Clear the right margin for every second box to create two columns */
+    .box:nth-child(2) {
+        margin-right: 0;
+    }
+}
+
+/* Media query for smaller screens */
+@media all and (max-width: 767px) {   
+
+    /* Adjusting layout for smaller screens */
+    #fluid-wrap {
+        flex-direction: column; /* Displaying boxes in a column */
+    }
+
+    /* Adjusting box size for smaller screens */
+    .box {
+        flex-basis: 100%;   /* Full width */
+        margin-right: 0;
+    }
+}
+
